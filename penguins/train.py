@@ -47,13 +47,8 @@ def train(base_directory, train_path, validation_path, epochs=50, batch_size=32)
     predictions = np.argmax(model.predict(X_validation), axis=-1)
     print(f"Validation accuracy: {accuracy_score(y_validation, predictions)}")
     
-    # Create the local folder if it doesn't exist.
-    Path(base_directory).mkdir(parents=True, exist_ok=True)
-    
-    # model_filepath = Path(base_directory) / "model" / "001"
-    # model.save(model_filepath)
-    
-    print("hehehehe")
+    model_filepath = Path(base_directory) / "model" / "001"
+    model.save(model_filepath)
     
 if __name__ == "__main__":
     # Any hyperparameters provided by the training job are passed to the entry point
